@@ -8,7 +8,7 @@
 
 ### **_Description_**
 
-#### A TV review site where the registered user can add reviews to TV shows in the TV database.
+A TV review site where the registered user can add reviews to TV shows in the TV database.
 
 ![](https://i.ibb.co/Gc4Fx9r/postgres.jpg)
 
