@@ -9,7 +9,7 @@ const UserRouter = require('./routes/UserRouter')
 const ShowRouter = require('./routes/ShowRouter')
 const app = express()
 
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 8080
 
 app.use(cors())
 app.use(logger('dev'))
@@ -28,4 +28,5 @@ app.use('/api/shows', ShowRouter)
 //   })
 // }
 app.get('/', (req, res) => res.json({ msg: 'Server works' }))
+
 app.listen(PORT, () => console.log(`Server Running On Port: ${PORT}`))
