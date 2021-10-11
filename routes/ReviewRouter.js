@@ -18,7 +18,7 @@ router.get(
   '/tvdb/:tvdb_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.GetReviewByDeezerId
+  controller.GetReviewByTVDBId
 )
 router.get(
   '/average/:show_id',
@@ -30,7 +30,7 @@ router.get(
   '/show/:show_id',
   middleware.stripToken,
   middleware.verifyToken,
-  controller.GetAllReviewsOneAlbum
+  controller.GetAllReviewsOneShow
 )
 
 router.get(
