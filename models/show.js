@@ -2,13 +2,11 @@
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Show extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      Show.hasMany(models.Review, {
+        foreignKey: 'show_id',
+        as: 'show'
+      })
     }
   }
   Show.init(
@@ -17,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       genre: DataTypes.STRING,
       seasonNumber: DataTypes.INTEGER,
       runtime: DataTypes.INTEGER,
-      tvdbId: DataTypes.INTEGER
+      tvdbId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        unique: true
+      }
     },
     {
       sequelize,
