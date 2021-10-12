@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     static associate(models) {
       User.hasMany(models.Review, {
-        foreignKey: 'user_id',
+        foreignKey: 'userId',
         as: 'user'
       })
     }
