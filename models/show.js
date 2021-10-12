@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Show.hasMany(models.Review, {
         foreignKey: 'show_id',
-        as: 'shows'
+        as: 'review'
       })
     }
   }
@@ -19,6 +19,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
         unique: true
+      },
+      userId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        unique: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       }
     },
     {
