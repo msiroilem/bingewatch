@@ -21,12 +21,13 @@ app.use('/reviews', ReviewRouter)
 app.use('/users', UserRouter)
 app.use('/shows', ShowRouter)
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, 'client/build')))
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.join(`${__dirname}/client/build/index.html`))
-//   })
-// }
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')))
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(`${__dirname}/client/build/index.html`))
+  })
+}
+
 app.get('/', (req, res) => res.json({ msg: 'Server works' }))
 
 app.listen(PORT, () => console.log(`Server Running On Port: ${PORT}`))
