@@ -3,8 +3,18 @@
 </template>
 
 <script>
+import TVCard from './TVCard.vue'
+
 export default {
-  name: 'Feed'
+  name: 'Feed',
+  components: {
+    TVCard
+  },
+  data: () => ({
+
+  }),
+  mounted:() =>{},
+  methods: {},
 }
 </script>
 

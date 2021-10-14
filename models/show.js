@@ -2,12 +2,7 @@
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class Show extends Model {
-    static associate(models) {
-      Show.hasMany(models.Review, {
-        foreignKey: 'showId',
-        as: 'review'
-      })
-    }
+    static associate(models) {}
   }
   Show.init(
     {
@@ -19,16 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: true,
         unique: true
-      },
-      userId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        unique: true,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'users',
-          key: 'id'
-        }
       }
     },
     {
