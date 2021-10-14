@@ -4,5 +4,4 @@ export const BASE_URL =
   //   :
   'http://localhost:3001/api'
 
-export const TVDB_BASE_URL =
-  process.env.VUE_APP_USE_TVDB === 'true'('https://api4.thetvdb.com/v4')
+export const TVDB_BASE_URL = 'https://api4.thetvdb.com/v4'

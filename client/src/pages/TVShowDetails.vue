@@ -16,23 +16,39 @@
 </template>
 
 <script>
-const API_KEY = process.env.VUE_APP_TVDB_KEY
+// const API_KEY = process.env.VUE_APP_TVDB_KEY
 import axios from 'axios'
+import { BASE_URL } from '../../globals'
 export default {
   name: 'TVShowDetails',
   data: () => ({
-    showDetails: null
+    showDetails: null,
+    show: null
   }),
   mounted() {
     this.getShowDetails()
   },
   methods: {
     async getShowDetails() {
-      const res = await axios.get(
-        `https://api.thetvdb.com/api/series/${this.$route.params.show_id}?key=${API_KEY}`
-      )
+      const res = await axios.get(`${BASE_URL}`)
 
       this.showDetails = res.data
+    },
+    async getShows() {
+      const res = await axios.get(`${BASE_URL}`)
+      this.shows = res.data
+    },
+    async postShow() {
+      const res = await axios.post(`${BASE_URL}`)
+      this.shows = res.data
+    },
+    async updateShow() {
+      const res = await axios.put(`${BASE_URL}`)
+      this.shows = res.data
+    },
+    async deleteShow() {
+      const res = await axios.delete(`${BASE_URL}`)
+      this.shows = res.data
     },
     backButton() {
       this.$router.push('/')

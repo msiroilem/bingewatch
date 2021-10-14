@@ -10,7 +10,7 @@ const routes = [
   { path: '/about', component: About, name: 'About' },
   { path: '/search', component: Search, name: 'Search' },
   { path: '/signup', component: Signup, name: 'Signup' },
-  { path: '/details/:show_id', component: TVShowDetails, name: 'TVShowDetails' }
+  { path: '/details', component: TVShowDetails, name: 'TVShowDetails' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })
