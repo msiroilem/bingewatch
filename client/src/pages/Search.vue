@@ -3,15 +3,15 @@
     <div class="search">
       <v-form @submit.prevent="getSearchResults">
         <input @input="handleChange" :value="searchQuery" />
-        <v-btn tile color="success">
+        <v-btn>
           <v-icon left>
-            mdi-pencil
+            mdi-magnify
           </v-icon>
           Search
         </v-btn>
       </v-form>
-      <h2>Search Results</h2>
     </div>
+    <h2>Search Results</h2>
     <section v-if="searched" class="search-results container-grid">
       <div v-for="show in searchResults" :key="show.id">
         <TVCard :show="show" @selectShow="selectShow" />
@@ -38,7 +38,7 @@ export default {
   methods: {
     async getSearchResults() {
       const res = await axios.get(
-        `https://api.thetvdb/api/series?search=${this.searchQuery}&key=${API_KEY}`
+        `https://api.thetvdb.com/api/series?search=${this.searchQuery}&key=${API_KEY}`
       )
       this.searchResults = res.data.searchResults
       this.searched = true

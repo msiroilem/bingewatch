@@ -17,6 +17,7 @@ export default {
     selectShow(showId) {
       this.$emit('selectShow', showId)
     }
+    // deleteShow(showId) {}
   }
 }
 </script>
