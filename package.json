@@ -6,7 +6,8 @@
   "scripts": {
     "build": "npm install && npx sequelize-cli db:migrate && cd client && rm -rf build && npm install && npm run build",
     "dev": "nodemon app.js",
-    "start": "node app.js"
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "main": "app.js",
   "dependencies": {
