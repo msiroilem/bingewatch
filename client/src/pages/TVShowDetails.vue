@@ -5,7 +5,7 @@
       <div class="flex-row space"></div>
       <button @click="backButton">Back</button>
       <div>
-        <h3>{{ showDetails.name }}</h3>
+        <h3>{{ showDetails.name }} okay</h3>
         <img :src="showDetails.background_image" />
         <p>
           {{ showDetails.description }}
