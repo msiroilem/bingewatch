@@ -5,10 +5,10 @@ const GetReviews = async (req, res) => {
   try {
     const reviews = await Review.findAll({
       include: [
-        { model: Show, as: 'show' },
+        { model: Show },
         {
           model: User,
-          as: 'user',
+
           attributes: {
             exclude: ['password_digest']
           }
@@ -131,7 +131,7 @@ const CreateReview = async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        [Op.and]: [{ id: req.body.user_id }, { email: req.body.email }]
+        id: req.body.userId
       }
     })
     if (user) {
@@ -148,7 +148,7 @@ const UpdateReview = async (req, res) => {
   try {
     const user = await User.findOne({
       where: {
-        [Op.and]: [{ id: req.body.user_id }, { email: req.body.email }]
+        id: req.body.userId
       }
     })
     if (user) {

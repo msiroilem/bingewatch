@@ -2,7 +2,14 @@
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate(models) {}
+    static associate(models) {
+      User.hasMany(models.Review, {
+        foreignKey: 'userId'
+      }),
+        User.belongsToMany(models.Show, {
+          through: 'UserShow'
+        })
+    }
   }
   User.init(
     {

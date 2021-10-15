@@ -26,11 +26,11 @@ const FindShowById = async (req, res) => {
       where: { id: req.params.show_id }
     })
     if (show) {
-      return res.send(show)
+      res.send(show)
     }
-    return res.send({ msg: 'not found' })
+    res.send({ msg: 'not found' })
   } catch (error) {
-    return res.status(500).send({ msg: error })
+    res.status(500).send({ msg: error })
   }
 }
 
@@ -40,20 +40,20 @@ const FindShowByTVDBId = async (req, res) => {
       where: { tvdb_id: req.params.tvdb_id }
     })
     if (show) {
-      return res.send(show)
+      res.send(show)
     }
-    return res.send({ msg: 'not found' })
+    res.send({ msg: 'not found' })
   } catch (error) {
-    return res.status(500).send({ msg: error })
+    res.status(500).send({ msg: error })
   }
 }
 
 const CreateShow = async (req, res) => {
   try {
     const show = await Show.create({ ...req.body })
-    return res.send(show)
+    res.send(show)
   } catch (error) {
-    return res.status(409).send({ msg: 'already existing' })
+    res.status(409).send({ msg: error })
   }
 }
 
