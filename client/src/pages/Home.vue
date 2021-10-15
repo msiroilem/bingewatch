@@ -7,6 +7,7 @@
       :genre="show.genre"
       :seasonNumber="show.seasonNumber"
       :runtime="show.runtime"
+      @handleChange="handleChange"
     />
     <AddShow />
     <ReviewCard />
@@ -39,6 +40,9 @@ export default {
     async getShows() {
       const res = await axios.get(`${BASE_URL}/shows`)
       this.shows = res.data
+    },
+    handleChange(id) {
+      this.$router.push(`/shows${id}`)
     }
   }
 }
