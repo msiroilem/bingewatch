@@ -1,10 +1,10 @@
 <template>
-  <div class="tv-card" @click="selectShow(show.id)">
-    <div class="image">
+  <div class="tv-card" @click="selectShow(id)">
+    <!-- <div class="image">
       <img :src="show.background_image" />
-    </div>
+    </div> -->
     <div class="info">
-      {{ show.name }}
+      {{ title }}
     </div>
   </div>
 </template>
@@ -12,13 +12,10 @@
 <script>
 export default {
   name: 'TVCard',
-  props: {
-    show: Object,
-    showList: Array
-  },
+  props: ['id', 'title', 'genre', 'seasonNumber', 'runtime'],
   methods: {
-    selectShow(showId) {
-      this.$emit('selectShow', showId)
+    selectShow(id) {
+      this.$emit('selectShow', id)
     }
     // deleteShow(showId) {}
   }

@@ -1,6 +1,13 @@
 <template>
   <div>
-    <TVCard />
+    <TVCard
+      v-for="show in shows"
+      :key="show.id"
+      :title="show.title"
+      :genre="show.genre"
+      :seasonNumber="show.seasonNumber"
+      :runtime="show.runtime"
+    />
     <AddShow />
     <ReviewCard />
     <AddReview />
@@ -22,11 +29,15 @@ export default {
     ReviewCard,
     AddReview
   },
-  data: () => ({}),
-  mounted: {},
+  data: () => ({
+    shows: []
+  }),
+  mounted() {
+    this.getShows()
+  },
   methods: {
     async getShows() {
-      const res = await axios.get(`${BASE_URL}`)
+      const res = await axios.get(`${BASE_URL}/shows`)
       this.shows = res.data
     }
   }
