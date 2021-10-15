@@ -18,7 +18,7 @@
 <script>
 // const API_KEY = process.env.VUE_APP_TVDB_KEY
 import axios from 'axios'
-import { BASE_URL } from '../../globals'
+import { BASE_URL } from '../globals'
 export default {
   name: 'TVShowDetails',
   data: () => ({
