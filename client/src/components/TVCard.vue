@@ -12,7 +12,10 @@
 <script>
 export default {
   name: 'TVCard',
-  props: ['show'],
+  props: {
+    show: Object,
+    showList: Array
+  },
   methods: {
     selectShow(showId) {
       this.$emit('selectShow', showId)
