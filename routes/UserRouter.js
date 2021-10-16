@@ -16,8 +16,7 @@ router.get(
 )
 router.post(
   '/',
-  // middleware.stripToken,
-  // middleware.verifyToken,
+
   controller.CreateUser
 )
 router.put(

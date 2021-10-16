@@ -14,4 +14,4 @@ AppRouter.use('/auth', AuthRouter)
 AppRouter.use('/users', UserRouter)
 AppRouter.use('/shows', ShowRouter)
 AppRouter.use('/reviews', ReviewRouter)
-module.exports = Router
+module.exports = AppRouter

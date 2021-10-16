@@ -6,7 +6,7 @@
         :title="show.name"
         :genre="show.genre"
         :seasonNumber="show.seasonNumber"
-        :runtime="show.runtime"
+        :runtime="show.averageRuntime"
         :img="show.image"
         @handleChange="handleChange"
         @selectShow="selectShow"
