@@ -23,7 +23,7 @@ export default {
   name: 'TVShowDetails',
   data: () => ({
     showDetails: null,
-    show: null
+    show: []
   }),
   mounted() {
     this.getShowDetails()

@@ -1,6 +1,6 @@
 import Client from '../services/api'
 
-export const GetReview = async () => {
+export const getReview = async () => {
   const res = await Client.get('/reviews')
   return res.data
 }

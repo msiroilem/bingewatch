@@ -19,25 +19,25 @@ const TVDBClient = Axios.create({
 //   error => Promise.reject(error)
 // )
 
-export const getSeries = async () => {
+export const GetSeries = async () => {
   const res = await TVDBClient.get(`${TVDB_BASE_URL}/series`)
   return res.data
 }
-export const getImage = async image => {
+export const GetImage = async image => {
   const res = await TVDBClient.get(`https://api.thetvdb.com${image}`)
   return res.data
 }
-export const getSeriesSeasons = async () => {
+export const GetSeriesSeasons = async () => {
   const res = await TVDBClient.get(`${TVDB_BASE_URL}/seasons`)
   return res.data
 }
 
-export const getSeasonEpisodes = async id => {
+export const GetSeasonEpisodes = async id => {
   const res = await TVDBClient.get(`${TVDB_BASE_URL}/episodes/${id}`)
   return res.data
 }
 
-export const getMovies = async () => {
+export const GetMovies = async () => {
   const res = await TVDBClient.get(`${TVDB_BASE_URL}/movies`)
   return res.data
 }

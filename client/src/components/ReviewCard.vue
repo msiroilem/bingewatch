@@ -1,5 +1,5 @@
 <template>
-  <div class="review-card" @selectReview="selectReview(id)">
+  <div class="review-card" @click="selectReview(id)">
     <div class="review-info">
       {{ content }}
     </div>

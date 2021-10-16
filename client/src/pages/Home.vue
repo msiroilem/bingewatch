@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getSeries, getMovies } from '../services/TVDBServices'
+import { GetSeries, GetMovies } from '../services/TVDBServices'
 import AddShow from '../components/AddShow.vue'
 import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
@@ -48,12 +48,12 @@ export default {
   },
   methods: {
     async getShows() {
-      const res = await getSeries()
+      const res = await GetSeries()
       console.log(res, 'test test test')
       this.shows = res.data
     },
     async getMovies() {
-      const res = await getMovies()
+      const res = await GetMovies()
       this.movies = res.data
     },
 
@@ -61,7 +61,7 @@ export default {
       this.$router.push(`/shows${id}`)
     },
     selectShow(id) {
-      this.$router.push(`/shows/${id}`)
+      this.$router.push(`/details/${id}`)
     },
     selectMovie(id) {
       this.$router.push(`/movies/${id}`)
