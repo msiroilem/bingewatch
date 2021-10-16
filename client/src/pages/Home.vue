@@ -8,11 +8,16 @@
         :runtime="show.runtime"
         :img="show.image"
         @handleChange="handleChange"
+        @selectShow="selectShow"
       />
     </div>
     <AddShow />
     <ReviewCard />
     <AddReview />
+
+    <div v-for="movie in movies" :key="movie.id">
+      <MovieCard @selectMovie="selectMovie" />
+    </div>
   </div>
 </template>
 
@@ -21,12 +26,14 @@ import { getSeries, getMovies } from '../services/TVDBServices'
 import AddShow from '../components/AddShow.vue'
 import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
+import MovieCard from '../components/MovieCard.vue'
 import ReviewCard from '../components/ReviewCard.vue'
 
 export default {
   name: 'Home',
   components: {
     TVCard,
+    MovieCard,
     AddShow,
     ReviewCard,
     AddReview
@@ -51,6 +58,12 @@ export default {
 
     handleChange(id) {
       this.$router.push(`/shows${id}`)
+    },
+    selectShow(id) {
+      this.$router.push(`/shows/${id}`)
+    },
+    selectMovie(id) {
+      this.$router.push(`/movies/${id}`)
     }
   }
 }
