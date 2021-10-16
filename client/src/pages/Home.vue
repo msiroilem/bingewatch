@@ -2,6 +2,7 @@
   <div>
     <div v-for="show in shows" :key="show.id">
       <TVCard
+        :id="show.id"
         :title="show.name"
         :genre="show.genre"
         :seasonNumber="show.seasonNumber"
