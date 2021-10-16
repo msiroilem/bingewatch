@@ -26,7 +26,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.image {
-}
-</style>
+<style scoped></style>
