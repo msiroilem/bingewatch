@@ -1,46 +1,26 @@
-import Client from '/api'
+import Client from '../services/api'
 
 export const GetReview = async () => {
-  try {
-    const res = await Client.get('/reviews')
-    return res.data
-  } catch (error) {
-    throw error
-  }
+  const res = await Client.get('/reviews')
+  return res.data
 }
 
-export const GetShowReviews = async id => {
-  try {
-    const res = await Client.get(`/reviews/show/${id}`)
-    return res.data
-  } catch (error) {
-    throw error
-  }
+export const getShowReviews = async id => {
+  const res = await Client.get(`/reviews/show/${id}`)
+  return res.data
 }
 
-export const CreateReview = async data => {
-  try {
-    const res = await Client.post('/reviews', data)
-    return res
-  } catch (error) {
-    throw error
-  }
+export const createReview = async data => {
+  const res = await Client.post('/reviews', data)
+  return res
 }
 
-export const UpdateReview = async (id, data) => {
-  try {
-    const res = await Client.put(`/reviews/${id}`, data)
-    return res
-  } catch (error) {
-    throw error
-  }
+export const updateReview = async (id, data) => {
+  const res = await Client.put(`/reviews/${id}`, data)
+  return res
 }
 
-export const DeleteReview = async id => {
-  try {
-    const res = await Client.delete(`/reviews/${id}`)
-    return res
-  } catch (error) {
-    throw error
-  }
+export const deleteReview = async id => {
+  const res = await Client.delete(`/reviews/${id}`)
+  return res
 }
