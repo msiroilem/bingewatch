@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { getSeries } from '../services/TVDBServices'
+import { getSeries, getMovies } from '../services/TVDBServices'
 import AddShow from '../components/AddShow.vue'
 import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
@@ -33,7 +33,7 @@ export default {
   },
   data: () => ({
     shows: [],
-    TVDBShows: []
+    movies: []
   }),
   mounted() {
     this.getShows()
@@ -43,6 +43,10 @@ export default {
       const res = await getSeries()
       console.log(res, 'test test test')
       this.shows = res.data
+    },
+    async getMovies() {
+      const res = await getMovies()
+      this.movies = res.data
     },
 
     handleChange(id) {
