@@ -2,10 +2,11 @@
   <div>
     <div v-for="show in shows" :key="show.id">
       <TVCard
-        :title="show.title"
+        :title="show.name"
         :genre="show.genre"
         :seasonNumber="show.seasonNumber"
         :runtime="show.runtime"
+        :img="show.image"
         @handleChange="handleChange"
       />
     </div>
@@ -16,13 +17,12 @@
 </template>
 
 <script>
-import axios from 'axios'
-import { BASE_URL, TVDB_BASE_URL } from '../globals'
+import { getSeries } from '../services/TVDBServices'
 import AddShow from '../components/AddShow.vue'
 import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
 import ReviewCard from '../components/ReviewCard.vue'
-const API_KEY = process.env.VUE_APP_TVDB_KEY
+
 export default {
   name: 'Home',
   components: {
@@ -37,20 +37,23 @@ export default {
   }),
   mounted() {
     this.getShows()
-    this.getTVDBShows()
   },
   methods: {
     async getShows() {
-      const res = await axios.get(`${BASE_URL}/shows`)
+      const res = await getSeries()
+      console.log(res, 'test test test')
       this.shows = res.data
     },
-    async getTVDBShows() {
-      const res = await axios.get(`${TVDB_BASE_URL}/series?key=${API_KEY}`)
-      this.TVDBShows = res.data.results
-    },
+
     handleChange(id) {
       this.$router.push(`/shows${id}`)
     }
   }
 }
 </script>
+
+<style scoped>
+.image {
+  /* max-height: 200px; */
+}
+</style>
