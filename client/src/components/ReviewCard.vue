@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { getReviews } from '../services/ReviewServices'
+import { GetReviews } from '../services/ReviewServices'
 export default {
   name: 'ReviewCard',
   props: ['content', 'rating', 'title', 'showId', 'userId'],
@@ -16,7 +16,7 @@ export default {
       this.$emit('selectReview', id)
     },
     getShowReview(id) {
-      return getReviews(id)
+      return GetReviews(id)
     }
   }
 }

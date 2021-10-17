@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { getImage } from '../services/TVDBServices'
+import { GetImage } from '../services/TVDBServices'
 export default {
   name: 'MovieCard',
   methods: {
@@ -18,7 +18,7 @@ export default {
       this.$emit('selectMovie', id)
     },
     getMovieImage(image) {
-      return getImage(image)
+      return GetImage(image)
     }
   }
 }

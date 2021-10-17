@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { getImage } from '../services/TVDBServices'
+import { GetImage } from '../services/TVDBServices'
 export default {
   name: 'TVCard',
   props: ['id', 'title', 'genre', 'seasonNumber', 'runtime', 'img'],
@@ -19,11 +19,20 @@ export default {
       this.$emit('selectShow', id)
     },
     getSeriesImage(image) {
-      return getImage(image)
+      return GetImage(image)
     }
     // deleteShow(showId) {}
   }
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  max-height: 400px;
+}
+
+div {
+  display: grid;
+  max-width: 258px;
+}
+</style>
