@@ -4,13 +4,7 @@
     <section class="details">
       <div class="flex-row space"></div>
       <button @click="backButton">Back</button>
-      <div>
-        <h3>{{ showDetails.name }} okay</h3>
-        <img :src="showDetails.background_image" />
-        <p>
-          {{ showDetails.description }}
-        </p>
-      </div>
+      <div>Test</div>
     </section>
   </div>
 </template>
@@ -18,12 +12,22 @@
 <script>
 // const API_KEY = process.env.VUE_APP_TVDB_KEY
 import axios from 'axios'
+// import {
+//   GetReviews,
+//   GetShowReviews,
+//   UpdateReview,
+//   DeleteReview
+// } from '../services/ReviewServices'
+import TVCard from '../components/TVCard.vue'
 import { TVDB_BASE_URL } from '../globals'
+import { GetShowReviews } from '../services/ReviewServices'
 export default {
   name: 'TVShowDetails',
+  components: TVCard,
   data: () => ({
     showDetails: null,
-    show: []
+    show: [],
+    reviews: []
   }),
   mounted() {
     this.getShowDetails()
@@ -37,6 +41,10 @@ export default {
     async getShows() {
       const res = await axios.get(`${TVDB_BASE_URL}`)
       this.shows = res.data
+    },
+    async getReviews() {
+      const res = await GetShowReviews()
+      this.reviews = res.data
     },
     // async postShow() {
     //   const res = await axios.post(`${BASE_URL}`)
@@ -52,6 +60,10 @@ export default {
     // },
     backButton() {
       this.$router.push('/')
+    },
+
+    selectShow(id) {
+      this.$emit('selectShow', id)
     }
   }
 }

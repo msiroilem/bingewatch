@@ -29,6 +29,7 @@ export default {
 <style scoped>
 img {
   max-height: 400px;
+  cursor: pointer;
 }
 
 div {
