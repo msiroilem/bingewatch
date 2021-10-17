@@ -1,9 +1,9 @@
 <template>
-  <div class="tv-card" @click="selectShow(id)">
+  <div class="tv-card" @click="selectShow(show.id)">
     <div class="info">
-      {{ title }}
+      {{ show.title }}
       <div class="image">
-        <img :src="`https://www.thetvdb.com${img}`" />
+        <img :src="`https://www.thetvdb.com${show.image}`" />
       </div>
     </div>
   </div>
@@ -13,7 +13,9 @@
 import { GetImage } from '../services/TVDBServices'
 export default {
   name: 'TVCard',
-  props: ['id', 'title', 'genre', 'seasonNumber', 'runtime', 'img'],
+  props: {
+    show: Object
+  },
   methods: {
     selectShow(id) {
       this.$emit('selectShow', id)

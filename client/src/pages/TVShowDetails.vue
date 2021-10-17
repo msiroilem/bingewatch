@@ -3,8 +3,9 @@
     <section class="image-container"></section>
     <section class="details">
       <div class="flex-row space"></div>
-      <h3>{{ show.name }}</h3>
-      <div>Test</div>
+      <h3>{{ showDetails.name }}</h3>
+      <img :src="showDetails.image" />
+      <p>{{ showDetails.abbreviation }}</p>
     </section>
   </div>
 </template>
@@ -19,6 +20,7 @@ import axios from 'axios'
 //   DeleteReview
 // } from '../services/ReviewServices'
 
+import { TVDBClient } from '../services/TVDBServices'
 import { TVDB_BASE_URL } from '../globals'
 import {
   GetShowReviews,
@@ -38,9 +40,13 @@ export default {
   },
   methods: {
     async getShowDetails() {
-      const res = await axios.get(`${TVDB_BASE_URL}`)
+      console.log(this.$route.params, 'test')
+      const res = await TVDBClient.get(
+        `${TVDB_BASE_URL}/series/${this.$route.params.show_id}/extended`
+      )
+      console.log(res, 'test test')
 
-      this.showDetails = res.data
+      this.showDetails = res.data.data
     },
     async getShows() {
       const res = await axios.get(`${TVDB_BASE_URL}`)
@@ -85,4 +91,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+img {
+  max-height: 400px;
+  cursor: pointer;
+}
+</style>

@@ -1,7 +1,7 @@
 import Axios from 'axios'
 import { TVDB_BASE_URL } from '../globals'
 
-const TVDBClient = Axios.create({
+export const TVDBClient = Axios.create({
   // baseURL: TVDB_BASE_URL,
   headers: {
     Authorization: `Bearer ${process.env.VUE_APP_TVDB_KEY}`

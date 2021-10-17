@@ -1,7 +1,10 @@
 <template>
   <div class="review-card" @click="selectReview(id)">
     <div class="review-info">
-      {{ content }}
+      <button>Create Review</button>
+      <button>Find Review</button>
+      <button>Update Review</button>
+      <button>Delete Review</button>
     </div>
   </div>
 </template>

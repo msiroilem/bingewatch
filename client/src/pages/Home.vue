@@ -1,15 +1,7 @@
 <template>
   <div>
     <div v-for="show in shows" :key="show.id">
-      <TVCard
-        :id="show.id"
-        :title="show.name"
-        :genre="show.genre"
-        :seasonNumber="show.seasonNumber"
-        :runtime="show.averageRuntime"
-        :img="show.image"
-        @selectShow="selectShow"
-      />
+      <TVCard :show="show" @selectShow="selectShow" />
     </div>
     <AddShow />
     <ReviewCard />
