@@ -57,15 +57,15 @@ export default {
       this.movies = res.data
     },
 
-    handleChange(id) {
-      this.$router.push(`/shows${id}`)
-    },
+    // handleChange(id) {
+    //   this.$router.push(`/shows${id}`)
+    // },
     selectShow(id) {
       this.$router.push(`/details/${id}`)
-    },
-    selectMovie(id) {
-      this.$router.push(`/movies/${id}`)
     }
+    // selectMovie(id) {
+    //   this.$router.push(`/movies/${id}`)
+    // }
   }
 }
 </script>
