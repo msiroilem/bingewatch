@@ -13,10 +13,15 @@
 
       <p>Would you like to add, update or delete a review?</p>
       <div>
-        <v-btn to="/reviews" fab> <v-icon left small> mdi-plus </v-icon></v-btn>
+        <!-- <v-if="createReview"/> -->
+        <v-btn to="/reviews" fab>
+          <v-icon style="height:auto" left small> mdi-plus </v-icon></v-btn
+        >
+        <!-- <v-if="updateReview"/> -->
         <v-btn to="/reviews" fab
           ><v-icon left small> mdi-update </v-icon></v-btn
         >
+        <!-- <v-if="deleteReview"/> -->
         <v-btn to="/reviews" fab><v-icon left small> mdi-minus </v-icon></v-btn>
       </div>
     </section>
@@ -26,13 +31,6 @@
 <script>
 // const API_KEY = process.env.VUE_APP_TVDB_KEY
 import axios from 'axios'
-// import {
-//   GetReviews,
-//   GetShowReviews,
-//   UpdateReview,
-//   DeleteReview
-// } from '../services/ReviewServices'
-
 import { TVDBClient } from '../services/TVDBServices'
 import { TVDB_BASE_URL } from '../globals'
 import {

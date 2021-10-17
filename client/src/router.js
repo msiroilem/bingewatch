@@ -16,7 +16,7 @@ const routes = [
     component: TVShowDetails,
     name: 'TVShowDetails'
   },
-  { path: '/reviews/', component: ReviewCard, name: 'ReviewCard' }
+  { path: '/reviews', component: ReviewCard, name: 'ReviewCard' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })

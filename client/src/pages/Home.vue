@@ -3,32 +3,17 @@
     <div v-for="show in shows" :key="show.id">
       <TVCard :show="show" @selectShow="selectShow" />
     </div>
-    <AddShow />
-    <ReviewCard />
-    <AddReview />
-
-    <div v-for="movie in movies" :key="movie.id">
-      <MovieCard @selectMovie="selectMovie" />
-    </div>
   </div>
 </template>
 
 <script>
 import { GetSeries, GetMovies } from '../services/TVDBServices'
-import AddShow from '../components/AddShow.vue'
-import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
-import MovieCard from '../components/MovieCard.vue'
-import ReviewCard from './ReviewCard.vue'
 
 export default {
   name: 'Home',
   components: {
-    TVCard,
-    MovieCard,
-    AddShow,
-    ReviewCard,
-    AddReview
+    TVCard
   },
   data: () => ({
     shows: [],
@@ -61,4 +46,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+div {
+  display: grid;
+  grid-template-columns: 272px 272px 272px;
+}
+</style>
