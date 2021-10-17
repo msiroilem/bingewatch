@@ -4,6 +4,7 @@
     <router-link class="link" to="/about">About</router-link>
     <router-link class="link" to="/search">Search</router-link>
     <router-link class="link" to="/signup">Signup</router-link>
+    <router-link class="link" to="/reviews">Reviews</router-link>
   </nav>
 </template>
 

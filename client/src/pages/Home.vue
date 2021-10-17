@@ -8,7 +8,6 @@
         :seasonNumber="show.seasonNumber"
         :runtime="show.averageRuntime"
         :img="show.image"
-        @handleChange="handleChange"
         @selectShow="selectShow"
       />
     </div>
@@ -28,7 +27,7 @@ import AddShow from '../components/AddShow.vue'
 import AddReview from '../components/AddReview.vue'
 import TVCard from '../components/TVCard.vue'
 import MovieCard from '../components/MovieCard.vue'
-import ReviewCard from '../components/ReviewCard.vue'
+import ReviewCard from './ReviewCard.vue'
 
 export default {
   name: 'Home',
@@ -60,8 +59,8 @@ export default {
     // handleChange(id) {
     //   this.$router.push(`/shows${id}`)
     // },
-    selectShow(id) {
-      this.$router.push(`/details/${id}`)
+    selectShow(showId) {
+      this.$router.push(`/details/${showId}`)
     }
     // selectMovie(id) {
     //   this.$router.push(`/movies/${id}`)

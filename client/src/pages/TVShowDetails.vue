@@ -3,7 +3,7 @@
     <section class="image-container"></section>
     <section class="details">
       <div class="flex-row space"></div>
-      <button @click="backButton">Back</button>
+      <h3>{{ show.name }}</h3>
       <div>Test</div>
     </section>
   </div>
@@ -18,12 +18,16 @@ import axios from 'axios'
 //   UpdateReview,
 //   DeleteReview
 // } from '../services/ReviewServices'
-import TVCard from '../components/TVCard.vue'
+
 import { TVDB_BASE_URL } from '../globals'
-import { GetShowReviews } from '../services/ReviewServices'
+import {
+  GetShowReviews,
+  UpdateReview,
+  CreateReview,
+  DeleteReview
+} from '../services/ReviewServices'
 export default {
   name: 'TVShowDetails',
-  components: TVCard,
   data: () => ({
     showDetails: null,
     show: [],
@@ -44,6 +48,18 @@ export default {
     },
     async getReviews() {
       const res = await GetShowReviews()
+      this.reviews = res.data
+    },
+    async createReview() {
+      const res = await CreateReview()
+      this.reviews = res.data
+    },
+    async updateReview() {
+      const res = await UpdateReview()
+      this.reviews = res.data
+    },
+    async deleteReview() {
+      const res = await DeleteReview()
       this.reviews = res.data
     },
     // async postShow() {
