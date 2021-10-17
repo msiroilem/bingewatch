@@ -5,7 +5,20 @@
       <div class="flex-row space"></div>
       <h3>{{ showDetails.name }}</h3>
       <img :src="showDetails.image" />
-      <p>{{ showDetails.abbreviation }}</p>
+      <v-if>
+        <p>
+          {{ showDetails.name }}'s last show was {{ showDetails.lastAired }}.
+        </p>
+      </v-if>
+
+      <p>Would you like to add, update or delete a review?</p>
+      <div>
+        <v-btn to="/reviews" fab> <v-icon left small> mdi-plus </v-icon></v-btn>
+        <v-btn to="/reviews" fab
+          ><v-icon left small> mdi-update </v-icon></v-btn
+        >
+        <v-btn to="/reviews" fab><v-icon left small> mdi-minus </v-icon></v-btn>
+      </div>
     </section>
   </div>
 </template>
@@ -95,5 +108,10 @@ export default {
 img {
   max-height: 400px;
   cursor: pointer;
+}
+div {
+  display: flex;
+  justify-content: center;
+  background-color: cornsilk;
 }
 </style>
