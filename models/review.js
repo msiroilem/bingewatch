@@ -13,10 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       content: DataTypes.STRING,
       rating: DataTypes.REAL,
       title: DataTypes.STRING,
-      showId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
+
       userId: {
         type: DataTypes.INTEGER,
         allowNull: false,

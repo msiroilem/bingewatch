@@ -3,43 +3,18 @@
     <div>
       <form @submit.prevent="deleteReview">
         <div>
-          <label for="content">
-            Content:
+          <label for="reviewId">
+            reviewId:
           </label>
           <input
             type="text"
-            content="content"
-            id="content"
-            @input.prevent="handleContent"
-            @value="content"
+            reviewId="reviewId"
+            id="reviewId"
+            @input.prevent="handleReviewId"
+            @value="reviewId"
           />
         </div>
 
-        <div>
-          <label for="userId">
-            userId:
-          </label>
-          <input
-            type="text"
-            userId="userId"
-            id="userId"
-            @input.prevent="handleUserId"
-            @value="userId"
-          />
-        </div>
-
-        <div>
-          <label for="showId">
-            showId:
-          </label>
-          <input
-            type="text"
-            showId="showId"
-            id="showId"
-            @input.prevent="handleShowId"
-            @value="showId"
-          />
-        </div>
         <button>Delete Review</button>
       </form>
     </div>
@@ -50,22 +25,20 @@
 import { DeleteReview } from '../services/ReviewServices'
 export default {
   name: 'DeleteReview',
+  data: () => ({
+    showId: '',
+    reviewId: ''
+  }),
   methods: {
-    handleShowId(e) {
-      this.showId = e.target.value
+    handleReviewId(e) {
+      this.reviewId = e.target.value
     },
-    handleUserId(e) {
-      this.userId = e.target.value
-    },
+
     handleContent(e) {
       this.content = e.target.value
     },
     async deleteReview() {
-      const newReview = await DeleteReview({
-        content: this.content,
-        userId: this.userId,
-        showId: this.showId
-      })
+      const newReview = await DeleteReview(this.reviewId)
       console.log(newReview, 'review')
       return newReview
     }

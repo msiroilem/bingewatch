@@ -1,12 +1,12 @@
 require('dotenv').config()
 module.exports = {
   development: {
-    database: 'bingewatch_development',
+    database: 'binge_development',
     // "host": "127.0.0.1",
     dialect: 'postgres'
   },
   test: {
-    database: 'bingewatch_test',
+    database: 'binge_test',
     // "host": "127.0.0.1",
     dialect: 'postgres'
   },

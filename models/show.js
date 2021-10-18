@@ -5,10 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Show.belongsToMany(models.User, {
         through: 'UserShow'
-      }),
-        Show.hasMany(models.Review, {
-          foreignKey: 'showId'
-        })
+      })
     }
   }
   Show.init(

@@ -28,15 +28,15 @@
       </div>
 
       <div>
-        <label for="showId">
-          showId:
+        <label for="reviewId">
+          reviewId:
         </label>
         <input
           type="text"
-          showId="showId"
-          id="showId"
-          @input.prevent="handleShowId"
-          @value="showId"
+          reviewId="reviewId"
+          id="reviewId"
+          @input.prevent="handleReviewId"
+          @value="reviewId"
         />
       </div>
       <button>Update Review</button>
@@ -51,22 +51,26 @@ export default {
   name: 'UpdateReview',
   data: () => ({
     content: '',
-    updatedReview: ''
+    updatedReview: '',
+    reviewId: '',
+    userId: ''
   }),
   methods: {
     handleContent(e) {
       this.content = e.target.value
     },
-    handleShowId(e) {
-      this.showId = e.target.value
-    },
+
     handleUserId(e) {
       this.userId = e.target.value
     },
+    handleReviewId(e) {
+      this.reviewId = e.target.value
+    },
     async updateReview() {
-      const updatedReview = await UpdateReview({
+      const updatedReview = await UpdateReview(this.reviewId, {
         content: this.content,
-        showId: this.showId
+        userId: this.userId,
+        reviewId: this.reviewId
       })
       return updatedReview
     }

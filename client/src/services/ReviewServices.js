@@ -1,7 +1,7 @@
 import Client from '../services/api'
 
 export const GetReviews = async () => {
-  const res = await Client.get('/reviews')
+  const res = await Client.get('/reviews/test/review')
   return res.data
 }
 
@@ -11,7 +11,7 @@ export const GetShowReviews = async id => {
 }
 
 export const CreateReview = async data => {
-  const res = await Client.post('/reviews', data)
+  const res = await Client.post('/reviews/review', data)
   return res
 }
 

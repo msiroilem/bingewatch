@@ -3,17 +3,19 @@ const controller = require('../controllers/ReviewController')
 const middleware = require('../middleware')
 
 router.get(
-  '/',
-  // middleware.stripToken,
-  // middleware.verifyToken,
-  controller.GetReviews
-)
-router.get(
   '/:review_id',
   // middleware.stripToken,
   // middleware.verifyToken,
   controller.GetReviewById
 )
+
+router.get(
+  '/test/review',
+  // middleware.stripToken,
+  // middleware.verifyToken,
+  controller.GetReviews
+)
+
 router.get(
   '/tvdb/:tvdb_id',
   // middleware.stripToken,
@@ -40,7 +42,7 @@ router.get(
   controller.GetAllReviewsOneUser
 )
 router.post(
-  '/',
+  '/review',
   // middleware.stripToken,
   // middleware.verifyToken,
   controller.CreateReview

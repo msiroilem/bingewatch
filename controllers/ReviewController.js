@@ -3,21 +3,11 @@ const { Op } = require('sequelize')
 
 const GetReviews = async (req, res) => {
   try {
-    const reviews = await Review.findAll({
-      include: [
-        { model: Show },
-        {
-          model: User,
-
-          attributes: {
-            exclude: ['password_digest']
-          }
-        }
-      ]
-    })
+    const reviews = await Review.findAll()
     res.send(reviews)
   } catch (error) {
-    res.status(500).send({ error: error })
+    console.log(error)
+    throw error
   }
 }
 
@@ -129,38 +119,24 @@ const GetAllReviewsOneUser = async (req, res) => {
 
 const CreateReview = async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: {
-        id: req.body.userId
-      }
-    })
-    if (user) {
-      const review = await Review.create({ ...req.body })
-      return res.send(review)
-    }
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+    const review = await Review.create({ ...req.body })
+    return res.send(review)
   } catch (error) {
-    res.status(500).send({ error: error })
+    console.log(error)
+    throw error
   }
 }
 
 const UpdateReview = async (req, res) => {
   try {
-    const user = await User.findOne({
-      where: {
-        id: req.body.userId
-      }
-    })
-    if (user) {
-      const review = await Review.update(
-        { ...req.body },
-        { where: { id: req.params.review_id }, returning: true }
-      )
-      return res.send(review)
-    }
-    res.status(401).send({ status: 'Error', msg: 'try test Unauthorized' })
+    const review = await Review.update(
+      { ...req.body },
+      { where: { id: req.params.review_id }, returning: true }
+    )
+    return res.send(review)
   } catch (error) {
-    res.status(401).send({ status: 'Error', msg: 'try catch Unauthorized' })
+    console.log(error)
+    throw error
   }
 }
 

@@ -9,7 +9,7 @@
           type="text"
           content="content"
           id="content"
-          @input.prevent="handleContent"
+          @input="handleContent"
           @value="content"
         />
       </div>
@@ -22,23 +22,11 @@
           type="text"
           userId="userId"
           id="userId"
-          @input.prevent="handleUserId"
+          @input="handleUserId"
           @value="userId"
         />
       </div>
 
-      <div>
-        <label for="showId">
-          showId:
-        </label>
-        <input
-          type="text"
-          showId="showId"
-          id="showId"
-          @input.prevent="handleShowId"
-          @value="showId"
-        />
-      </div>
       <button>Create Review</button>
     </form>
   </div>
@@ -49,14 +37,10 @@ import { CreateReview } from '../services/ReviewServices'
 export default {
   name: 'AddReview',
   data: () => ({
-    showId: '',
     userId: '',
     content: ''
   }),
   methods: {
-    handleShowId(e) {
-      this.showId = e.target.value
-    },
     handleUserId(e) {
       this.userId = e.target.value
     },
@@ -66,8 +50,7 @@ export default {
     async createReview() {
       const newReview = await CreateReview({
         content: this.content,
-        userId: this.userId,
-        showId: this.showId
+        userId: this.userId
       })
       console.log(newReview, 'review')
       return newReview

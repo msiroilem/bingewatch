@@ -1,71 +1,13 @@
 <template>
   <div class="review-card">
-    <div class="review-info"></div>
-
-    <form @submit.prevent="updateReview">
-      <div>
-        <label for="content">
-          Content:
-        </label>
-        <input
-          type="text"
-          content="content"
-          id="content"
-          @input.prevent="handleContent"
-        />
-      </div>
-
-      <div>
-        <label for="userId">
-          userId:
-        </label>
-        <input
-          type="text"
-          userId="userId"
-          id="userId"
-          @input.prevent="handleUserId"
-          @value="userId"
-        />
-      </div>
-
-      <div>
-        <label for="showId">
-          showId:
-        </label>
-        <input
-          type="text"
-          showId="showId"
-          id="showId"
-          @input.prevent="handleShowId"
-          @value="showId"
-        />
-      </div>
-      <button>Update Review</button>
-    </form>
-
-    <form @submit.prevent="deleteReview">
-      <div>
-        <label for="content">
-          Content:
-        </label>
-        <input
-          type="text"
-          content="content"
-          id="content"
-          @input.prevent="handleContent"
-        />
-      </div>
-    </form>
+    <div class="review-info" v-for="review in reviews" :key="review.id">
+      <p>{{ review.content }}</p>
+    </div>
   </div>
 </template>
 
 <script>
-import {
-  CreateReview,
-  DeleteReview,
-  GetShowReviews,
-  UpdateReview
-} from '../services/ReviewServices'
+import { GetReviews } from '../services/ReviewServices'
 export default {
   name: 'ReviewCard',
 
@@ -75,33 +17,16 @@ export default {
     showId: '',
     userId: ''
   }),
+  mounted() {
+    this.getReviews()
+  },
   methods: {
     async getReviews() {
-      const res = await GetShowReviews()
-      this.reviews = res.data
+      const res = await GetReviews()
+      console.log(res)
+      this.reviews = res
     },
-    async createReview() {
-      const newReview = await CreateReview({
-        content: this.content,
-        userId: this.userId,
-        showId: this.showId
-      })
-      console.log(newReview, 'review')
-      return newReview
-    },
-    async updateReview() {
-      const updatedReview = await UpdateReview({
-        content: this.content,
-        showId: this.showId
-      })
-      return updatedReview
-    },
-    async deleteReview() {
-      const deleteReview = await DeleteReview({
-        content: this.content
-      })
-      return deleteReview
-    },
+
     handleContent(e) {
       this.content = e.target.value
     },
@@ -114,3 +39,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+p {
+  border: aliceblue;
+}
+</style>
