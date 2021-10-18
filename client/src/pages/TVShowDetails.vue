@@ -12,17 +12,17 @@
 
       <p>Would you like to add, update or delete a review?</p>
       <div>
-        <!-- <v-if="createReview"/> -->
-        <v-btn to="/reviews" fab @click="createReview">
+        <v-btn to="/addreview" fab @click="createShow">
           <v-icon style="height:auto" left small> mdi-plus </v-icon></v-btn
         >
 
-        <!-- <v-if="updateReview"/> -->
-        <v-btn to="/reviews" fab
+        <v-btn to="/updatereview" fab
           ><v-icon left small> mdi-update </v-icon></v-btn
         >
         <!-- <v-if="deleteReview"/> -->
-        <v-btn fab><v-icon left small> mdi-minus </v-icon></v-btn>
+        <v-btn to="/deletereview" fab
+          ><v-icon left small> mdi-minus </v-icon></v-btn
+        >
         <v-btn fab to="/"><v-icon left> mdi-arrow-left </v-icon></v-btn>
       </div>
       <div>
@@ -46,6 +46,7 @@ import {
   CreateReview,
   DeleteReview
 } from '../services/ReviewServices'
+import { CreateShow } from '../services/ShowServices'
 export default {
   name: 'TVShowDetails',
   data: () => ({
@@ -86,6 +87,10 @@ export default {
     async deleteReview() {
       const res = await DeleteReview()
       this.reviews = res.data
+    },
+    async createShow() {
+      const res = await CreateShow()
+      this.shows = res.data
     },
 
     backButton() {

@@ -58,15 +58,53 @@
 
       <div>
         <button type="submit">
-          Signin
+          Register
         </button>
       </div>
     </form>
+
+    <div>
+      <h3>Login</h3>
+      <form @submit.prevent="login">
+        <div>
+          <label for="name">
+            name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            @input.prevent="handleName"
+            @value="username"
+          />
+        </div>
+
+        <div>
+          <label for="password">
+            Password
+          </label>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            @input.prevent="handlePassword"
+            @value="password"
+          />
+
+          <div>
+            <button type="submit">
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
-import { RegisterUser } from '../services/Auth'
+import { RegisterUser, LoginUser } from '../services/Auth'
 export default {
   name: 'signup',
   components: {},
@@ -93,10 +131,16 @@ export default {
       const newUser = await RegisterUser({
         username: this.username,
         email: this.email,
-        password: this.password,
-        confirmPassword: this.confirmPassword
+        password: this.password
       })
       return newUser
+    },
+    async login() {
+      const loggedInUser = await LoginUser({
+        username: this.username,
+        password: this.password
+      })
+      return loggedInUser
     }
   }
 }

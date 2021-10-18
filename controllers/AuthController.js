@@ -30,6 +30,7 @@ const Login = async (req, res) => {
 
 const Register = async (req, res) => {
   try {
+    console.log(req.body, 'hello')
     const { username, email, password } = req.body
     let password_digest = await middleware.hashPassword(password)
     console.log(password_digest, 'test test test')
@@ -38,7 +39,7 @@ const Register = async (req, res) => {
     res.send({ username: user.username, email: user.email })
   } catch (error) {
     console.log()
-    res.status(401).send({ status: 'Error', msg: 'Unauthorized' })
+    res.status(401).send({ status: 'Error', msg: 'register Unauthorized' })
   }
 }
 

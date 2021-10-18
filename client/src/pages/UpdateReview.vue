@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.prevent="createReview">
+    <form @submit.prevent="updateReview">
       <div>
         <label for="content">
           Content:
@@ -39,38 +39,36 @@
           @value="showId"
         />
       </div>
-      <button>Create Review</button>
+      <button>Update Review</button>
+      <v-btn fab to="/"><v-icon left> mdi-arrow-left </v-icon></v-btn>
     </form>
   </div>
 </template>
 
 <script>
-import { CreateReview } from '../services/ReviewServices'
+import { UpdateReview } from '../services/ReviewServices'
 export default {
-  name: 'AddReview',
+  name: 'UpdateReview',
   data: () => ({
-    showId: '',
-    userId: '',
-    content: ''
+    content: '',
+    updatedReview: ''
   }),
   methods: {
+    handleContent(e) {
+      this.content = e.target.value
+    },
     handleShowId(e) {
       this.showId = e.target.value
     },
     handleUserId(e) {
       this.userId = e.target.value
     },
-    handleContent(e) {
-      this.content = e.target.value
-    },
-    async createReview() {
-      const newReview = await CreateReview({
+    async updateReview() {
+      const updatedReview = await UpdateReview({
         content: this.content,
-        userId: this.userId,
         showId: this.showId
       })
-      console.log(newReview, 'review')
-      return newReview
+      return updatedReview
     }
   }
 }

@@ -5,10 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Review.belongsTo(models.User, {
         foreignKey: 'userId'
-      }),
-        Review.belongsTo(models.Show, {
-          foreignKey: 'showId'
-        })
+      })
     }
   }
   Review.init(
@@ -18,11 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       showId: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'shows',
-          key: 'id'
-        }
+        allowNull: false
       },
       userId: {
         type: DataTypes.INTEGER,

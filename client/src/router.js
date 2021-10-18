@@ -6,6 +6,9 @@ import Signup from './pages/Signup'
 import TVShowDetails from './pages/TVShowDetails'
 import ReviewCard from './pages/ReviewCard'
 import AddShow from './components/AddShow'
+import AddReview from './components/AddReview'
+import UpdateReview from './pages/UpdateReview'
+import DeleteReview from './pages/DeleteReview'
 
 const routes = [
   { path: '/', component: Home, name: 'Home' },
@@ -18,7 +21,10 @@ const routes = [
     name: 'TVShowDetails'
   },
   { path: '/reviews', component: ReviewCard, name: 'ReviewCard' },
-  { path: '/addshow', component: AddShow, name: 'AddShow' }
+  { path: '/addshow', component: AddShow, name: 'AddShow' },
+  { path: '/addreview', component: AddReview, name: 'AddReview' },
+  { path: '/updatereview', component: UpdateReview, name: 'UpdateReview' },
+  { path: '/deletereview', component: DeleteReview, name: 'DeleteReview' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })
