@@ -26,10 +26,7 @@
         <v-btn fab to="/"><v-icon left> mdi-arrow-left </v-icon></v-btn>
       </div>
       <div>
-        <form @submit.prevent="handleSubmit">
-          <textarea v-model="newReview"></textarea>
-          <button type="submit">Submit</button>
-        </form>
+        <form @submit.prevent="handleSubmit"></form>
       </div>
     </section>
   </div>
@@ -115,7 +112,7 @@ img {
 div {
   display: flex;
   justify-content: center;
-  background-color: cornsilk;
+  background-color: lightblue;
 }
 form {
   background-color: white;

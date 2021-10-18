@@ -24,14 +24,18 @@ No longer do you have to worry about whether you will be able to add your favori
 
 ### **_Screenshots_**
 
-![image]()
-![image]()
-![image]()
+![image](https://i.ibb.co/HKffdZw/Screen-Shot-2021-10-18-at-5-36-52-AM.png)
+![image](https://i.ibb.co/6DdMMJv/Screen-Shot-2021-10-18-at-5-37-37-AM.png)
+![image](https://i.ibb.co/yBvXHTQ/Screen-Shot-2021-10-18-at-5-37-53-AM.png)
 
 ### **_Future Updates_**
 
-- [ ]
-- [ ]
-- [ ]
+- [ ] Make it actually work as it should.
+- [ ] Increased functionality (sorting and other filtering options)
+- [ ] Ability to like a show, instead of rating it numerically.
 
 ### **_Credits_**
+
+- Vuetify docs https://vuetifyjs.com/en/
+- Vue docs https://vuejs.org/v2/guide/
+- TVDB API https://thetvdb.github.io/v4-api/

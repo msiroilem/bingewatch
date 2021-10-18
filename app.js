@@ -3,10 +3,6 @@ const cors = require('cors')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path')
-// const AuthRouter = require('./routes/AuthRouter')
-// const ReviewRouter = require('./routes/ReviewRouter')
-// const UserRouter = require('./routes/UserRouter')
-// const ShowRouter = require('./routes/ShowRouter')
 
 const AppRouter = require('./routes/AppRouter')
 
@@ -18,11 +14,6 @@ app.use(cors())
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
-// app.use('/auth', AuthRouter)
-// app.use('/reviews', ReviewRouter)
-// app.use('/users', UserRouter)
-// app.use('/shows', ShowRouter)
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/dist')))
