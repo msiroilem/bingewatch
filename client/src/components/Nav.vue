@@ -16,5 +16,6 @@ export default {
 <style scoped>
 .link {
   margin: 0 10px;
+  position: relative;
 }
 </style>
