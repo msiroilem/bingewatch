@@ -1,7 +1,7 @@
 <template>
   <div class="tv-card" @click="selectShow(show.id)">
     <div class="info">
-      {{ show.name }}
+      <h1>{{ show.name }}</h1>
       <div class="image">
         <img v-if="fromHome" :src="`https://www.thetvdb.com${show.image}`" />
         <img v-if="fromSearch" :src="show.image_url" />

@@ -4,7 +4,7 @@
     <form @submit.prevent="register">
       <div>
         <label for="name">
-          name
+          Username
         </label>
         <input
           type="text"
@@ -17,7 +17,7 @@
 
       <div>
         <label for="email">
-          email
+          Email
         </label>
         <input
           type="text"
@@ -57,9 +57,12 @@
       </div>
 
       <div>
-        <button type="submit">
-          Register
-        </button>
+        <v-btn class="ma-2" color="primary" dark type="submit">
+          Signup
+          <v-icon dark right>
+            mdi-checkbox-marked-circle
+          </v-icon>
+        </v-btn>
       </div>
     </form>
 
@@ -68,7 +71,7 @@
       <form @submit.prevent="login">
         <div>
           <label for="name">
-            name
+            Username
           </label>
           <input
             type="text"
@@ -93,9 +96,12 @@
           />
 
           <div>
-            <button type="submit">
+            <v-btn class="ma-2" color="primary" dark type="submit">
               Login
-            </button>
+              <v-icon dark right>
+                mdi-checkbox-marked-circle
+              </v-icon>
+            </v-btn>
           </div>
         </div>
       </form>

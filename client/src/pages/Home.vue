@@ -33,15 +33,9 @@ export default {
       this.movies = res.data
     },
 
-    // handleChange(id) {
-    //   this.$router.push(`/shows${id}`)
-    // },
     selectShow(showId) {
       this.$router.push(`/details/${showId}`)
     }
-    // selectMovie(id) {
-    //   this.$router.push(`/movies/${id}`)
-    // }
   }
 }
 </script>
@@ -49,6 +43,6 @@ export default {
 <style scoped>
 div {
   display: grid;
-  grid-template-columns: 272px 272px 272px;
+  grid-template-columns: 500px 500px 500px;
 }
 </style>

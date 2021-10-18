@@ -8,19 +8,8 @@ export const TVDBClient = Axios.create({
   }
 })
 
-// TVDBClient.interceptors.request.use(
-//   config => {
-//     const token = process.env.VUE_APP_TVDB_KEY
-//     if (token) {
-//       config.headers['authorization'] = `Bearer ${token}`
-//     }
-//     return config
-//   },
-//   error => Promise.reject(error)
-// )
-
 export const GetSeries = async () => {
-  const res = await TVDBClient.get(`${TVDB_BASE_URL}/series`)
+  const res = await TVDBClient.get(`${TVDB_BASE_URL}/series?page=14`)
   return res.data
 }
 export const GetImage = async image => {
