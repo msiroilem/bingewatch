@@ -11,7 +11,7 @@
           name="name"
           id="name"
           @input.prevent="handleName"
-          @value="name"
+          @value="username"
         />
       </div>
 
@@ -71,14 +71,14 @@ export default {
   name: 'signup',
   components: {},
   data: () => ({
-    name: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
   }),
   methods: {
     handleName(e) {
-      this.name = e.target.value
+      this.username = e.target.value
     },
     handleEmail(e) {
       this.email = e.target.value
@@ -91,7 +91,7 @@ export default {
     },
     async register() {
       const newUser = await RegisterUser({
-        name: this.name,
+        username: this.username,
         email: this.email,
         password: this.password,
         confirmPassword: this.confirmPassword

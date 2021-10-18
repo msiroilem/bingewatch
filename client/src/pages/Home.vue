@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="show in shows" :key="show.id">
-      <TVCard :show="show" @selectShow="selectShow" />
+      <TVCard :show="show" @selectShow="selectShow" :fromHome="true" />
     </div>
   </div>
 </template>

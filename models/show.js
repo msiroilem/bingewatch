@@ -16,12 +16,12 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       genre: DataTypes.STRING,
       seasonNumber: DataTypes.INTEGER,
-      runtime: DataTypes.INTEGER
-      // tvdbId: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: true,
-      //   unique: true
-      // }
+      runtime: DataTypes.INTEGER,
+      tvdbId: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        unique: true
+      }
     },
     {
       sequelize,

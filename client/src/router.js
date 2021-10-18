@@ -5,6 +5,7 @@ import Search from './pages/Search'
 import Signup from './pages/Signup'
 import TVShowDetails from './pages/TVShowDetails'
 import ReviewCard from './pages/ReviewCard'
+import AddShow from './components/AddShow'
 
 const routes = [
   { path: '/', component: Home, name: 'Home' },
@@ -16,7 +17,8 @@ const routes = [
     component: TVShowDetails,
     name: 'TVShowDetails'
   },
-  { path: '/reviews', component: ReviewCard, name: 'ReviewCard' }
+  { path: '/reviews', component: ReviewCard, name: 'ReviewCard' },
+  { path: '/addshow', component: AddShow, name: 'AddShow' }
 ]
 
 export default new VueRouter({ routes, mode: 'history' })

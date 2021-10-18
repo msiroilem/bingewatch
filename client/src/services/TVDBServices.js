@@ -41,3 +41,10 @@ export const GetMovies = async () => {
   const res = await TVDBClient.get(`${TVDB_BASE_URL}/movies`)
   return res.data
 }
+
+export const GetSearchResults = async query => {
+  const res = await TVDBClient.get(
+    `${TVDB_BASE_URL}/search?q=${query}&limit=10`
+  )
+  return res.data
+}

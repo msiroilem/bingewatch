@@ -5,24 +5,31 @@
       <div class="flex-row space"></div>
       <h3>{{ showDetails.name }}</h3>
       <img :src="showDetails.image" />
-      <v-if>
-        <p>
-          {{ showDetails.name }}'s last show was {{ showDetails.lastAired }}.
-        </p>
-      </v-if>
+
+      <p v-if="showDetails">
+        {{ showDetails.name }}'s last show was {{ showDetails.lastAired }}.
+      </p>
 
       <p>Would you like to add, update or delete a review?</p>
       <div>
         <!-- <v-if="createReview"/> -->
-        <v-btn to="/reviews" fab>
+        <v-btn to="/reviews" fab @click="createReview">
           <v-icon style="height:auto" left small> mdi-plus </v-icon></v-btn
         >
+
         <!-- <v-if="updateReview"/> -->
         <v-btn to="/reviews" fab
           ><v-icon left small> mdi-update </v-icon></v-btn
         >
         <!-- <v-if="deleteReview"/> -->
-        <v-btn to="/reviews" fab><v-icon left small> mdi-minus </v-icon></v-btn>
+        <v-btn fab><v-icon left small> mdi-minus </v-icon></v-btn>
+        <v-btn fab to="/"><v-icon left> mdi-arrow-left </v-icon></v-btn>
+      </div>
+      <div>
+        <form @submit.prevent="handleSubmit">
+          <textarea v-model="newReview"></textarea>
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </section>
   </div>
@@ -44,7 +51,8 @@ export default {
   data: () => ({
     showDetails: null,
     show: [],
-    reviews: []
+    reviews: [],
+    newReview: ''
   }),
   mounted() {
     this.getShowDetails()
@@ -79,27 +87,19 @@ export default {
       const res = await DeleteReview()
       this.reviews = res.data
     },
-    // async postShow() {
-    //   const res = await axios.post(`${BASE_URL}`)
-    //   this.shows = res.data
-    // },
-    // async updateShow() {
-    //   const res = await axios.put(`${BASE_URL}`)
-    //   this.shows = res.data
-    // },
-    // async deleteShow() {
-    //   const res = await axios.delete(`${BASE_URL}`)
-    //   this.shows = res.data
-    // },
+
     backButton() {
       this.$router.push('/')
     },
 
     selectShow(id) {
       this.$emit('selectShow', id)
-    }
+    },
+    handleSubmit() {}
   }
 }
+
+//post review creates show in db but first create show with handleSubmit and then create review
 </script>
 
 <style scoped>
@@ -111,5 +111,8 @@ div {
   display: flex;
   justify-content: center;
   background-color: cornsilk;
+}
+form {
+  background-color: white;
 }
 </style>

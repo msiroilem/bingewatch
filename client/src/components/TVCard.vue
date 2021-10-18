@@ -1,9 +1,10 @@
 <template>
   <div class="tv-card" @click="selectShow(show.id)">
     <div class="info">
-      {{ show.title }}
+      {{ show.name }}
       <div class="image">
-        <img :src="`https://www.thetvdb.com${show.image}`" />
+        <img v-if="fromHome" :src="`https://www.thetvdb.com${show.image}`" />
+        <img v-if="fromSearch" :src="show.image_url" />
       </div>
     </div>
   </div>
@@ -14,7 +15,9 @@ import { GetImage } from '../services/TVDBServices'
 export default {
   name: 'TVCard',
   props: {
-    show: Object
+    show: Object,
+    fromHome: Boolean,
+    fromSearch: Boolean
   },
   methods: {
     selectShow(id) {
